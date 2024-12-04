@@ -37,10 +37,12 @@ const columns: TableProps<ItemsType>["columns"] = [
 
 export const Confirmation: React.FC = () => {
   const navigate = useNavigate();
+
   columns[3].render = (_, record) => {
     let store = getLocalStorage();
     let history = store ? store.history : [];
     const hasGet = history.includes(record.id);
+
     return hasGet ? (
       <p>已领取</p>
     ) : (
